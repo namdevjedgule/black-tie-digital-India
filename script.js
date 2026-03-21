@@ -28,6 +28,28 @@ document.addEventListener("mouseout", () => {
   document.body.classList.remove("cursor-hover");
 });
 
+document.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+  document.querySelectorAll(".floating").forEach((el) => {
+    const speed = el.getAttribute("data-speed");
+
+    el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+  });
+});
+
+const words = document.querySelectorAll(".word");
+let index = 0;
+
+setInterval(() => {
+  words[index].classList.remove("active");
+
+  index = (index + 1) % words.length;
+
+  words[index].classList.add("active");
+}, 2000);
+
 const menuToggle = document.getElementById("menuToggle");
 const mobileNav = document.getElementById("mobileNav");
 
