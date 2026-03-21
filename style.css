@@ -42,7 +42,7 @@ label,
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 18px 8%;
+  padding: 12px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,15 +51,10 @@ label,
   z-index: 100;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: 800;
-}
-
-.logo span {
-  background: var(--gold);
-  -webkit-background-clip: text;
-  color: transparent;
+.logo img {
+  width: 100px;
+  height: auto;
+  display: block;
 }
 
 .navbar nav a {
