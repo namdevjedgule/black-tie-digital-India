@@ -206,18 +206,109 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const track = document.querySelector(".scroll-track");
-const section = document.querySelector(".case-study-scroll");
+  const section = document.querySelector(".case-study-scroll");
 
-window.addEventListener("scroll", () => {
-  const rect = section.getBoundingClientRect();
+  window.addEventListener("scroll", () => {
+    const rect = section.getBoundingClientRect();
 
-  const scrollProgress = -rect.top / (section.offsetHeight - window.innerHeight);
+    const scrollProgress = -rect.top / (section.offsetHeight - window.innerHeight);
 
-  const maxMove = track.scrollWidth - window.innerWidth;
+    const maxMove = track.scrollWidth - window.innerWidth;
 
-  const moveX = maxMove * scrollProgress;
+    const moveX = maxMove * scrollProgress;
 
-  track.style.transform = `translateX(-${moveX}px)`;
+    track.style.transform = `translateX(-${moveX}px)`;
+  });
+
 });
 
-});
+function updateViewer() {
+  const caseData = cases[currentCaseIndex];
+
+  document.getElementById("caseImage").src =
+    caseData.images[currentImageIndex];
+
+  document.getElementById("caseTitle").innerText =
+    caseData.title;
+
+  document.getElementById("imageCount").innerText =
+    (currentImageIndex + 1) + " / " + caseData.images.length;
+}
+
+const cases = [
+  {
+    title: "Meal Berg",
+    images: [
+      "images/caseStudy/BTD_page-0012.jpg",
+      "images/caseStudy/BTD_page-0013.jpg",
+      "images/caseStudy/BTD_page-0014.jpg",
+      "images/caseStudy/BTD_page-0015.jpg",
+      "images/caseStudy/BTD_page-0016.jpg"
+    ]
+  },
+  {
+    title: "Vedansh Craft",
+    images: [
+      "images/caseStudy/BTD_page-0017.jpg",
+      "images/caseStudy/BTD_page-0018.jpg",
+      "images/caseStudy/BTD_page-0019.jpg",
+      "images/caseStudy/BTD_page-0020.jpg"
+    ]
+  },
+  {
+    title: "Think Tank Interiors",
+    images: [
+      "images/caseStudy/BTD_page-0021.jpg",
+      "images/caseStudy/BTD_page-0022.jpg",
+      "images/caseStudy/BTD_page-0023.jpg",
+      "images/caseStudy/BTD_page-0024.jpg"
+    ]
+  },
+  {
+    title: "Country Sports",
+    images: [
+      "images/caseStudy/BTD_page-0025.jpg",
+      "images/caseStudy/BTD_page-0026.jpg",
+      "images/caseStudy/BTD_page-0027.jpg"
+    ]
+  }
+];
+
+let currentCaseIndex = 0;
+let currentImageIndex = 0;
+
+function openCase(index) {
+  currentCaseIndex = index;
+  currentImageIndex = 0;
+
+  document.getElementById("caseViewer").classList.add("active");
+  updateViewer();
+}
+
+function closeCase() {
+  document.getElementById("caseViewer").classList.remove("active");
+}
+
+function nextCase() {
+  const caseData = cases[currentCaseIndex];
+
+  if (currentImageIndex < caseData.images.length - 1) {
+    currentImageIndex++;
+  } else {
+    currentImageIndex = 0; 
+  }
+
+  updateViewer();
+}
+
+function prevCase() {
+  const caseData = cases[currentCaseIndex];
+
+  if (currentImageIndex > 0) {
+    currentImageIndex--;
+  } else {
+    currentImageIndex = caseData.images.length - 1;
+  }
+
+  updateViewer();
+}
