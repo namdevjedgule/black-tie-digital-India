@@ -12,17 +12,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadHTML("navbar", "navbar.html", function () {
 
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("mobileNav");
 
-    if (hamburger && navLinks) {
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        hamburger.classList.toggle("active");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
       });
     }
 
-    document.getElementById("pageName").innerText = document.title;
+    document.querySelectorAll("#mobileNav a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+      });
+    });
+
+    const pageName = document.getElementById("pageName");
+    if (pageName) {
+      pageName.innerText = document.title;
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
@@ -295,7 +303,7 @@ function nextCase() {
   if (currentImageIndex < caseData.images.length - 1) {
     currentImageIndex++;
   } else {
-    currentImageIndex = 0; 
+    currentImageIndex = 0;
   }
 
   updateViewer();
