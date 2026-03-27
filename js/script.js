@@ -228,6 +228,23 @@ document.addEventListener("DOMContentLoaded", function () {
     track.style.transform = `translateX(-${moveX}px)`;
   });
 
+  const btn = document.getElementById("backToTop");
+
+  window.onscroll = function () {
+    if (document.documentElement.scrollTop > 200) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  };
+
+  btn.onclick = function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
 });
 
 function updateViewer() {
