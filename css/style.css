@@ -1381,3 +1381,255 @@ label,
   box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
   z-index: 200;
 }
+
+.terms-section {
+  padding: 100px 4%;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b 70%);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.term-container {
+  max-width: 100%;
+  animation: fadeSlideUp 1s ease;
+}
+
+/* Heading */
+.term-container h1 {
+  font-size: 34px;
+  margin-bottom: 30px;
+
+  background: linear-gradient(90deg, #f5d76e, #ffffff, #d4af37);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-align: center;
+}
+
+/* Sub Headings */
+.term-container h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #d4af37;
+
+  position: relative;
+}
+
+/* underline effect */
+.term-container h3::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #d4af37;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* Text */
+.term-container p,
+.term-container li {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* List spacing */
+.term-container ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* Hover glow */
+.term-container:hover {
+  transform: translateY(-5px);
+  transition: 0.4s;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeItem 0.8s ease forwards;
+}
+
+.fade-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.fade-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.fade-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.fade-item:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.fade-item:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.fade-item:nth-child(6) {
+  animation-delay: 0.7s;
+}
+
+.fade-item:nth-child(7) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .term-container {
+    padding: 30px 20px;
+  }
+
+  .term-container h1 {
+    font-size: 26px;
+  }
+
+  .term-container h3 {
+    font-size: 16px;
+  }
+
+  .term-container p,
+  .term-container li {
+    font-size: 14px;
+  }
+}
+
+/* SECTION */
+.privacy-section {
+  padding: 120px 4% 80px; /* FIX for navbar overlap */
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b 70%);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* CONTAINER */
+.privacy-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 40px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+
+  animation: fadeSlideUp 1s ease;
+}
+
+/* HEADINGS (SCOPED FIX ✅) */
+.privacy-container h1 {
+  font-size: 34px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  background: linear-gradient(90deg, #f5d76e, #ffffff, #d4af37);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.privacy-container h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #d4af37;
+  position: relative;
+}
+
+.privacy-container h3::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #d4af37;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* TEXT (SCOPED FIX ✅) */
+.privacy-container p,
+.privacy-container li {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.privacy-container ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.privacy-container a {
+  color: #f5d76e;
+}
+
+/* BREADCRUMB FIX */
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+/* ANIMATION */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 30px 20px;
+  }
+
+  .privacy-container h1 {
+    font-size: 26px;
+  }
+
+  .privacy-container h3 {
+    font-size: 16px;
+  }
+
+  .privacy-container p,
+  .privacy-container li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .privacy-section {
+    padding: 100px 5% 60px;
+  }
+
+  .privacy-container h1 {
+    font-size: 22px;
+  }
+}
