@@ -135,27 +135,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const counters = document.querySelectorAll(".result-box h3");
-  let started = false;
+  const counters = document.querySelectorAll(".counter");
 
-  function startCounters() {
-    counters.forEach(counter => {
-      const target = parseFloat(counter.dataset.count);
-      let count = 0;
-      const speed = target / 80;
+  const startCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+    const speed = 100; 
 
-      const update = () => {
-        count += speed;
-        if (count < target) {
-          counter.innerText = Math.floor(count);
-          requestAnimationFrame(update);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      update();
+    const update = () => {
+      const increment = target / speed;
+
+      if (count < target) {
+        count += increment;
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+
+    update();
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounter(entry.target);
+        observer.unobserve(entry.target); 
+      }
     });
-  }
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
 
   window.addEventListener("scroll", () => {
     const results = document.getElementById("results");
