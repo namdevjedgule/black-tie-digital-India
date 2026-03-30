@@ -268,36 +268,41 @@ label,
   width: 40px;
 }
 
-.rocket {
-  top: 15%;
+.instagram {
+  top: 8%;
   left: 10%;
 }
 
-.moon {
+.facebook {
   bottom: 15%;
   left: 25%;
 }
 
-.star {
-  top: 10%;
-  right: 15%;
+.linkedin {
+  bottom: 20%;
+  right: 35%;
 }
 
-.earth {
+.pinterest {
+  top: 10%;
+  right: 25%;
+}
+
+.youtube {
   font-size: 26px !important;
-  top: 25%;
+  top: 35%;
   right: 5%;
   animation-delay: 1s;
 }
 
-.sun {
+.whatsapp {
   font-size: 30px !important;
-  top: 15%;
+  top: 35%;
   right: 55%;
   animation-delay: 2s;
 }
 
-.jupiter {
+.twitter {
   font-size: 26px !important;
   top: 60%;
   left: 45%;
@@ -1810,50 +1815,40 @@ label,
   }
 }
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: #fff;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.9rem;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-  z-index: 200;
-  transition: all 0.3s ease;
-  animation: pulse 2s infinite;
-  cursor: pointer;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.9);
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-
-  70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
-}
-
 .whatsapp-container {
   position: fixed;
   bottom: 25px;
   right: 25px;
   z-index: 200;
+}
+
+.whatsapp-float {
+  display: block;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+.whatsapp-float img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover img {
+  transform: scale(1.2);
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0.6));
+  }
+  70% {
+    filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0));
+  }
 }
 
 .whatsapp-tooltip {
@@ -1878,8 +1873,8 @@ label,
 
 #backToTop {
   position: fixed;
-  bottom: 90px;
-  right: 28px;
+  bottom: 85px;
+  right: 30px;
 
   width: 40px;
   height: 40px;
