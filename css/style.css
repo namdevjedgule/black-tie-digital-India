@@ -516,10 +516,8 @@ label,
   font-weight: 600;
   text-align: center;
   margin: 0 auto 40px;
-  max-width: 700px; /* keeps it neat */
+  max-width: 700px;
   line-height: 1.6;
-
-  /* gradient text */
   background: linear-gradient(90deg, #f4a825, #ff6b6b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -930,6 +928,328 @@ label,
   -webkit-background-clip: text;
   color: transparent;
   text-align: center;
+}
+
+.event-section {
+  padding: 100px 4%;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b 70%);
+  color: #fff;
+}
+
+.event-container {
+  display: grid;
+  align-items: center;
+}
+
+.event-container p {
+  padding: 20px 150px 0;
+  text-align: center;
+}
+
+.event-title {
+  font-size: 38px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #f5d76e, #ffffff, #d4af37);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.event-content {
+  margin-top: 80px;
+  text-align: center;
+
+  animation: fadeSlideUp 1s ease;
+}
+
+.event-content h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.event-content p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.event-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.event-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+
+  width: 85%;
+  margin: 0 auto;
+  height: 360px;
+
+  display: flex;
+  align-items: center;
+}
+
+.event-card .reverse {
+  flex-direction: row-reverse;
+}
+
+.event-card-content {
+  width: 60%;
+  padding: 40px;
+  color: white;
+
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.8) 100%,
+      transparent 100%);
+
+  backdrop-filter: blur(6px);
+}
+
+.event-card-content h2 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.event-card-content p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.event-card-content h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.event-card-content ul {
+  padding-left: 20px;
+  color: #ddd;
+  list-style: none;
+}
+
+.event-card-content li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .event-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-card-content {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.invites-section {
+  padding: 100px 4%;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b 70%);
+  color: #fff;
+}
+
+.invites-container {
+  display: grid;
+  align-items: center;
+}
+
+.invites-container p {
+  padding: 20px 150px 0;
+  text-align: center;
+}
+
+.invites-title {
+  font-size: 38px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #f5d76e, #ffffff, #d4af37);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.invites-content {
+  margin-top: 80px;
+  text-align: center;
+
+  animation: fadeSlideUp 1s ease;
+}
+
+.invites-content h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.invites-content p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.invites-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.invite-card {
+  position: relative;
+  flex: 0 1 calc(33.33% - 25px);
+  max-width: calc(33.33% - 25px);
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.invite-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, #d4af37, #f5d76e, transparent);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 3;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 1 !important;
+  transform: none !important;
+  z-index: 2;
+  transition: 0.4s ease;
+}
+
+.overlay h3 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+}
+
+.overlay p {
+  color: #ddd;
+  font-size: 14px;
+  margin-top: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.overlay h3,
+.overlay p {
+  transition: all 0.4s ease;
+}
+
+.invite-card:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.invite-card:hover::before {
+  opacity: 1;
+}
+
+.invite-card:hover .overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.invite-card:hover .overlay h3 {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.invite-card:hover .overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invite-card:hover .bg-img {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
+
+.text-after-invite-card {
+  padding-top: 30px;
+}
+
+@media (max-width: 992px) {
+  .invites-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .invite-card {
+    flex: 0 1 calc(50% - 25px);
+    max-width: calc(50% - 25px);
+  }
+}
+
+@media (max-width: 600px) {
+  .invites-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .invite-card {
+    height: 200px;
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+
+  .invites-title {
+    font-size: 28px;
+  }
 }
 
 .case-container {
@@ -1641,11 +1961,6 @@ label,
 .term-container ul {
   padding-left: 20px;
   margin-top: 10px;
-}
-
-.term-container:hover {
-  transform: translateY(-5px);
-  transition: 0.4s;
 }
 
 @keyframes fadeSlideUp {
