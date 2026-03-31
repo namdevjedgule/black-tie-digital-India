@@ -12,6 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadHTML("navbar", "navbar.html", function () {
 
+    const currentPage = window.location.pathname.split("/").pop();
+
+    document.querySelectorAll("#mobileNav a").forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+
     const toggle = document.getElementById("menuToggle");
     const nav = document.getElementById("mobileNav");
 
@@ -116,15 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 2000);
 
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileNav = document.getElementById("mobileNav");
-
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener("click", () => {
-      mobileNav.classList.toggle("active");
-    });
-  }
-
   const reveals = document.querySelectorAll(".reveal");
 
   window.addEventListener("scroll", () => {
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
     let count = 0;
-    const speed = 100; 
+    const speed = 100;
 
     const update = () => {
       const increment = target / speed;
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         startCounter(entry.target);
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.5 });
