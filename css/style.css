@@ -2173,6 +2173,10 @@ label,
   left: 0;
 }
 
+.term-container p {
+  padding-top: 10px;
+}
+
 .term-container p,
 .term-container li {
   color: #cccccc;
@@ -2303,6 +2307,10 @@ label,
   position: absolute;
   bottom: -5px;
   left: 0;
+}
+
+.privacy-container p {
+  padding-top: 10px;
 }
 
 .privacy-container p,
