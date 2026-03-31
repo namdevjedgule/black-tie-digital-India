@@ -11,7 +11,7 @@
 
 body {
   background: #f4f1e9;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: black;
 
   cursor: url("../images/cursor/icons8-finger-up-50.png") 12 2, pointer;
@@ -25,7 +25,7 @@ h3 {
 
 button,
 .btn {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 a,
@@ -216,7 +216,7 @@ label,
 }
 
 .hero-left h1 {
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 800;
   color: #111;
   line-height: 1.2;
