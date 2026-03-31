@@ -20,7 +20,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 button,
@@ -1730,57 +1730,68 @@ label,
   }
 }
 
+/* Section */
 .testimonial {
-  padding: 100px 20px;
+  padding: 120px 20px 100px;
   background: radial-gradient(circle at top, rgba(212, 175, 55, 0.15), transparent 60%),
     linear-gradient(to bottom, #f4f1e9, #efe7d7);
-  position: relative;
   text-align: center;
 }
 
+/* Title */
 .testimonial-title {
   font-size: 42px;
   font-weight: 800;
   margin-bottom: 60px;
-
   background: var(--gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.testimonial-container {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Slider */
+.testimonial-slider {
+  overflow-x: hidden;   /* keep horizontal hidden */
+  overflow-y: visible;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
+/* Track */
+.testimonial-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollSlider 30s linear infinite;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* Pause on hover */
+.testimonial-slider:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Card */
 .testimonial-card {
-  position: relative;
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: 320px;
+
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(18px);
   border-radius: 18px;
-  width: 300px;
   padding: 30px;
-  transition: all 0.4s ease;
 
   border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
 
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeSlideUp 0.8s ease forwards;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
 }
 
-.testimonial-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.testimonial-card:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
+/* Border Glow */
 .testimonial-card::before {
   content: "";
   position: absolute;
@@ -1795,33 +1806,29 @@ label,
   mask-composite: exclude;
   opacity: 0;
   transition: 0.4s;
+  z-index: 10;
 }
 
 .testimonial-card:hover::before {
   opacity: 1;
 }
 
+/* Hover */
 .testimonial-card:hover {
-  transform: translateY(-12px) scale(1.04);
+  transform: scale(1.05);
   box-shadow: 0 20px 50px rgba(212, 175, 55, 0.25);
+  z-index: 999;
 }
 
-.quote-icon {
-  font-size: 26px;
-  margin-bottom: 10px;
-
-  background: var(--gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
+/* Stars */
 .stars {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-size: 14px;
   letter-spacing: 3px;
   color: #d4af37;
 }
 
+/* Text */
 .testimonial-text {
   font-size: 15px;
   line-height: 1.7;
@@ -1830,47 +1837,46 @@ label,
   color: #333;
 }
 
+/* Client */
 .client-info {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 15px;
 }
 
 .client-info img {
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: 2px solid #d4af37;
 }
 
 .client-info h4 {
+  font-size: 14px;
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
 }
 
-.client-info span {
-  font-size: 12px;
-  color: #888;
-}
-
-@keyframes fadeSlideUp {
+/* Infinite Scroll Animation */
+@keyframes scrollSlider {
   from {
-    opacity: 0;
-    transform: translateY(40px);
+    transform: translateX(0);
   }
 
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 768px) {
-  .testimonial-container {
-    flex-direction: column;
-    align-items: center;
+/* Responsive */
+@media (max-width: 992px) {
+  .testimonial-card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-card {
+    flex: 0 0 100%;
   }
 }
 
@@ -2163,16 +2169,6 @@ label,
   position: relative;
 }
 
-.term-container h3::after {
-  content: "";
-  width: 40px;
-  height: 2px;
-  background: #d4af37;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-}
-
 .term-container p {
   padding-top: 10px;
 }
@@ -2297,16 +2293,6 @@ label,
   font-size: 18px;
   color: #d4af37;
   position: relative;
-}
-
-.privacy-container h3::after {
-  content: "";
-  width: 40px;
-  height: 2px;
-  background: #d4af37;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
 }
 
 .privacy-container p {

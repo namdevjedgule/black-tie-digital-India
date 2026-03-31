@@ -143,9 +143,12 @@
 
     <div id="footer"></div>
 
-    <a href="https://wa.me/917XXXXXXXXX" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="whatsapp-container">
+        <a href="https://wa.me/918669586311" class="whatsapp-float" target="_blank">
+            <img src="images/icons8-whatsapp-96.png" alt="WhatsApp">
+        </a>
+        <span class="whatsapp-tooltip">Chat with us</span>
+    </div>
 
     <div class="cursor-hand"></div>
 
@@ -153,23 +156,21 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-        const cards = document.querySelectorAll(".service-card");
+            const cards = document.querySelectorAll(".service-card");
 
-        // ✅ Add AOS attributes first
-        cards.forEach((card, index) => {
-            card.setAttribute("data-aos", "fade-up");
-            card.setAttribute("data-aos-delay", (index % 3) * 150);
+            cards.forEach((card, index) => {
+                card.setAttribute("data-aos", "fade-up");
+                card.setAttribute("data-aos-delay", (index % 3) * 150);
+            });
+
+            AOS.init({
+                duration: 1000,
+                once: false,
+                mirror: true,
+                easing: 'ease-in-out'
+            });
         });
-
-        // ✅ THEN initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: false,
-            mirror: true,
-            easing: 'ease-in-out'
-        });
-    });
-</script>
+    </script>
 </body>

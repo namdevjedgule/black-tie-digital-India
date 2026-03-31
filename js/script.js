@@ -171,6 +171,8 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counter);
   });
 
+  let started = false;
+  
   window.addEventListener("scroll", () => {
     const results = document.getElementById("results");
     if (!started && results && results.getBoundingClientRect().top < window.innerHeight) {
