@@ -267,6 +267,10 @@ label,
 }
 
 .text-rotate {
+  font-family: 'Clash Display', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 1.5px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -277,7 +281,7 @@ label,
   align-items: center;
   position: relative;
   height: 1.2em;
-  min-width: 160px;
+  min-width: 180px;
   overflow: hidden;
 }
 
@@ -899,7 +903,7 @@ label,
   display: inline-block;
   margin-top: 25px;
   padding: 12px 25px;
-  background: linear-gradient(135deg, #d4af37, #f5d76e);
+  background: linear-gradient(90deg, #f4a825, #ffd95a);
   color: #000;
   border-radius: 8px;
   text-decoration: none;
@@ -909,7 +913,8 @@ label,
 
 .about-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 25px rgba(244, 168, 37, 0.4);
+  
 }
 
 @media (max-width: 992px) {

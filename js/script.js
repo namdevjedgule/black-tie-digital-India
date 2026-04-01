@@ -128,13 +128,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const reveals = document.querySelectorAll(".reveal");
 
-  window.addEventListener("scroll", () => {
-    reveals.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-        el.classList.add("active");
-      }
+  if (reveals.length > 0) {
+    window.addEventListener("scroll", () => {
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      });
     });
-  });
+  }
 
   const counters = document.querySelectorAll(".counter");
 
@@ -169,16 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   counters.forEach(counter => {
     observer.observe(counter);
-  });
-
-  let started = false;
-  
-  window.addEventListener("scroll", () => {
-    const results = document.getElementById("results");
-    if (!started && results && results.getBoundingClientRect().top < window.innerHeight) {
-      startCounters();
-      started = true;
-    }
   });
 
   const stat_counters = document.querySelectorAll(".counter");
@@ -232,34 +224,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".scroll-track");
   const section = document.querySelector(".case-study-scroll");
 
-  window.addEventListener("scroll", () => {
-    const rect = section.getBoundingClientRect();
+  if (track && section) {
+    window.addEventListener("scroll", () => {
+      const rect = section.getBoundingClientRect();
 
-    const scrollProgress = -rect.top / (section.offsetHeight - window.innerHeight);
+      const scrollProgress =
+        -rect.top / (section.offsetHeight - window.innerHeight);
 
-    const maxMove = track.scrollWidth - window.innerWidth;
+      const maxMove = track.scrollWidth - window.innerWidth;
 
-    const moveX = maxMove * scrollProgress;
+      const moveX = maxMove * scrollProgress;
 
-    track.style.transform = `translateX(-${moveX}px)`;
-  });
+      track.style.transform = `translateX(-${moveX}px)`;
+    });
+  }
 
   const btn = document.getElementById("backToTop");
 
-  window.onscroll = function () {
-    if (document.documentElement.scrollTop > 200) {
-      btn.classList.add("show");
-    } else {
-      btn.classList.remove("show");
-    }
-  };
-
-  btn.onclick = function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+  if (btn) {
+    window.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 200) {
+        btn.classList.add("show");
+      } else {
+        btn.classList.remove("show");
+      }
     });
-  };
+
+    btn.onclick = function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+  }
 
 });
 
